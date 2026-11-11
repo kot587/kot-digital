@@ -8,7 +8,7 @@ import { renderSite } from '../worker/generator.js';
 const project={name:'کوت',title:'سایت آزمایشی',template:'business',subtitle:'سلام',about:'درباره',services:'طراحی\nتوسعه',phone:'+989121234567',email:'test@example.com',cta:'تماس',color:'#bd2835'};
 function database(){
   const db=new DatabaseSync(':memory:');
-  db.exec(readFileSync(new URL('../migrations/0001_projects.sql',import.meta.url),'utf8'));
+  db.exec(readFileSync(new URL('../drizzle/0000_projects.sql',import.meta.url),'utf8'));
   return {close:()=>db.close(),prepare(sql){let args=[];return {bind(...values){args=values;return this},async all(){return {results:db.prepare(sql).all(...args)}},async first(){return db.prepare(sql).get(...args)},async run(){return {meta:db.prepare(sql).run(...args)}}}}};
 }
 function req(path,method='GET',data,extra={}){return new Request('https://factory.test'+path,{method,headers:{'Content-Type':'application/json','X-KOT-Client':'factory',...extra},...(data===undefined?{}:{body:JSON.stringify(data)})});}

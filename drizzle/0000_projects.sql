@@ -6,4 +6,5 @@ CREATE TABLE projects (
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL
 );
+--> statement-breakpoint
 CREATE INDEX projects_updated_at ON projects(updated_at);
