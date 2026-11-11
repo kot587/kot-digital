@@ -2,5 +2,5 @@
   "name": "kot-digital-sandbox",
   "private": true,
   "type": "module",
-  "scripts": { "test": "node --test scripts/worker.test.mjs" }
+  "scripts": { "build": "node scripts/build.mjs", "test": "node --test scripts/*.test.mjs" }
 }

@@ -7,7 +7,7 @@ test('health and page are served without caching', async () => {
   assert.equal(response.status, 200);
   assert.equal((await response.json()).mode, 'sandbox');
   assert.equal(response.headers.get('Cache-Control'), 'no-store');
-  const page = await worker.fetch(new Request('https://sandbox.test/'));
+  const page = await worker.fetch(new Request('https://sandbox.test/sandbox'));
   assert.match(await page.text(), /lang="fa" dir="rtl"/);
 });
 test('webhook accepts JSON and returns no submitted data', async () => {
