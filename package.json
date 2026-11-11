@@ -1,0 +1,6 @@
+{
+  "name": "kot-digital-sandbox",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test scripts/worker.test.mjs" }
+}
